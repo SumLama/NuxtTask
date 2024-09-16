@@ -1,11 +1,10 @@
 <script setup>
-import News from '~/pages/news.vue';
-
 </script>
 <template>
 <div>
-<News/>
+<Header/>
+<slot/>
+<Footer/>
 </div>
-    
-<
+
 </template>

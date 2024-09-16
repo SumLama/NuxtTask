@@ -10,15 +10,16 @@ const news = {
 </script>
 
 <template>
-  <Header />
-  <div class="">
-    <div class="mx-auto w-4/6">
-      <h1 class="text-2xl font-bold my-3">Featured News</h1>
-      <div class="flex space-x-10">
-        <ul v-for="i in 2" :key="i" class="space-y-3">
-            <li>
-                <img :src="news.image" :alt="news.title" class="" />
-            </li>
+  <div>
+    <div class="ml-64 ">
+      <h1 class="text-3xl font-bold my-3">Featured News</h1>
+      <div class="grid grid-cols-3 gap-6 col-span-2 w-full overflow-hidden ">
+        <ul v-for="i in 1" :key="i" class="space-y-3"  >
+         
+              <li>
+                <img :src="news.image" :alt="news.title"  />
+              </li>  
+            
             <li class=" flex space-x-4 text-xs">
                 <span class="text-xs">{{ news.createdAt }}</span>
                 <span class="flex items-center space-x-2 text-xs">
@@ -30,8 +31,8 @@ const news = {
         </ul>
       </div>
     </div>
-    <div class="mx-auto w-4/6">
-    <h1 class="text-2xl font-bold my-6">Recent News</h1>
+   <div class="mx-auto w-4/6">
+    <h1 class="text-3xl font-bold my-6">Recent News</h1>
     <div class="grid grid-cols-3 gap-6"> 
       <ul v-for="i in 6" :key="i" class="flex flex-col space-y-3">
         <li>
@@ -47,7 +48,7 @@ const news = {
         <li class="text-bold text-xl">{{ news.title }}</li>
       </ul>
     </div>
-  </div>
+  </div> 
   </div>
 </template>
 

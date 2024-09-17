@@ -1,55 +1,31 @@
 <script setup>
-const links1 = [{
-  label: 'Agenda',
-  to: '/agenda'
-}, {
-  label: 'Speakers',
-  to: '/speakers'
-}, {
-  label: 'Sponsors',
-  to: '/sponsors'
-},
-{
-  label: 'Add Poll',
-  to: '/addpoll'
-}]
-const links2 = [{
-  label: 'News',
-  to: '/news'
-}, {
-  label: 'Gallery',
-  to: '/gallery'
-}, {
-  label: 'Archieve',
-  to: '/archeive'
-}]
-const links3 = [{
-  label: 'Terms of Use',
-  to: '/termsofuse'
-},
-{
-  label: 'Privacy Policy',
-  to: '/privacypolicy'
-}]
-
-const links4 = [{
-    icon:'tdesign:logo-instagram',
-    to:''
-},
-{
-    icon:'iconoir:facebook',
-    to:''
-},
-{
-    icon:'i-simple-icons-x',
-    to:''
-}]
-
+const links = {
+  main: [
+    { label: 'Agenda', to: '/agenda' },
+    { label: 'Speakers', to: '/speakers' },
+    { label: 'Sponsors', to: '/sponsors' },
+    { label: 'Add Poll', to: '/addpoll' }
+  ],
+  secondary: [
+    { label: 'News', to: '/news' },
+    { label: 'Gallery', to: '/gallery' },
+    { label: 'Archive', to: '/archive' } // Corrected "Archieve" to "Archive"
+  ],
+  legal: [
+    { label: 'Terms of Use', to: '/termsofuse' },
+    { label: 'Privacy Policy', to: '/privacypolicy' }
+  ],
+  social: [
+    { icon: 'tdesign:logo-instagram', to: '' },
+    { icon: 'iconoir:facebook', to: '' },
+    { icon: 'i-simple-icons-x', to: '' }
+  ]
+};
 </script>
 <template>
-    <div class="bg-indigo-950 text-white h-96 flex flex-col">
+    <div class="bg-blue-950 text-white  lg:h-96 flex flex-col">
       <div class="flex-grow">
-        <div class="flex justify-around pt-20">
+        <div class="flex flex-col lg:flex-row lg:justify-around  lg:items-start justify-center items-center space-y-4 pt-20">
           <div>
             <img src="/assets/images/new_logo.png" alt="Logo">
           </div>
@@ -59,30 +35,30 @@ const links4 = [{
             </ul>
           </div>
           <div class="space-y-3">
-            <ul v-for="link in links1" :key="link.label">
+            <ul v-for="link in links.main" :key="link.label">
               <li class="text-sm font-bold">
                 <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
           <div class="space-y-3">
-            <ul v-for="link in links2" :key="link.label">
+            <ul v-for="link in links.secondary" :key="link.label">
               <li class="text-sm font-bold">
                 <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
           <div class="space-y-3">
-            <ul v-for="link in links3" :key="link.label">
+            <ul v-for="link in links.legal" :key="link.label">
               <li class="text-sm font-bold">
                 <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
-          <div class="flex flex-row space-x-4">
-            <ul v-for="link in links4" :key="link.icon">
+          <div class="flex flex-row lg:space-x-4">
+            <ul v-for="link in links.social" :key="link.icon">
               <li>
-                <UButton :icon="link.icon" color="white" variant="white" :to="link.to" target="_blank" />
+                <UButton :icon="link.icon" color="white" variant="white" :to="link.to" target="_blank" class="h-10 w-10" />
               </li>
             </ul>
           </div>

@@ -9,7 +9,7 @@ const links = {
   secondary: [
     { label: 'News', to: '/news' },
     { label: 'Gallery', to: '/gallery' },
-    { label: 'Archive', to: '/archive' } // Corrected "Archieve" to "Archive"
+    { label: 'Archive', to: '/archive' } 
   ],
   legal: [
     { label: 'Terms of Use', to: '/termsofuse' },

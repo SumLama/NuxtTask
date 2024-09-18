@@ -23,9 +23,11 @@ const links = {
 };
 </script>
 <template>
-    <div class="bg-blue-950 text-white  lg:h-96 flex flex-col">
+
+    <div class="bg-gradient-to-r from-[#00012D] to-[#03025f] text-white  md:h-96 flex flex-col">
+    
       <div class="flex-grow">
-        <div class="flex flex-col lg:flex-row lg:justify-around  lg:items-start justify-center items-center space-y-4 pt-20">
+        <div class="flex flex-col md:flex-row  md:justify-between md:mx-5 xl:justify-around  md:items-start justify-center items-center pt-20 space-y-5">
           <div>
             <img src="/assets/images/new_logo.png" alt="Logo">
           </div>
@@ -34,21 +36,21 @@ const links = {
               <li class="text-sm font-bold"><NuxtLink to="/">Home</NuxtLink></li>
             </ul>
           </div>
-          <div class="space-y-3">
+          <div class="space-y-2">
             <ul v-for="link in links.main" :key="link.label">
               <li class="text-sm font-bold">
                 <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
-          <div class="space-y-3">
+          <div class="space-y-2">
             <ul v-for="link in links.secondary" :key="link.label">
               <li class="text-sm font-bold">
                 <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </div>
-          <div class="space-y-3">
+          <div class="space-y-2">
             <ul v-for="link in links.legal" :key="link.label">
               <li class="text-sm font-bold">
                 <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
@@ -64,9 +66,11 @@ const links = {
           </div>
         </div>
       </div>
-      <footer class="m-10 ml-20" >
+      <footer class=" text-center md:text-start mx-6 xl:mx-24" >
         <p>Copyright © Innovation Driven Water Sustainability 2024, All rights reserved.</p>
       </footer>
+
     </div>
+ 
   </template>
   

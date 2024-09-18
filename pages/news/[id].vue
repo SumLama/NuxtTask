@@ -1,19 +1,24 @@
 <script setup>
+definePageMeta({
+  layout: false,
+});
 const route = useRoute();
 const apiUrl = `https://swa-2024-dev.up.railway.app/api/media-center/news/${route.params.id}`;
 const { data: item, status } = await useFetch(apiUrl);
-
 </script>
 
 <template>
   <div>
-    <div v-if="status === 'pending'">
-      <p>Loading......</p>
-    </div>
-   
-    <div v-else-if="status === 'success'">
-      <div class="w-4/6 mx-auto py-16 xl:py-32 space-y-5">
-        
+    <NuxtLayout name="custom">
+      <template #header>
+        <NewsDetailsHeader />
+      </template>
+      <div v-if="status === 'pending'">
+        <p>Loading......</p>
+      </div>
+
+      <div v-else-if="status === 'success'">
+        <div class="w-4/6 mx-auto py-16 xl:py-32 space-y-5">
           <div>
             <p class="text-medium text-3xl">{{ item.title }}</p>
           </div>
@@ -30,6 +35,6 @@ const { data: item, status } = await useFetch(apiUrl);
           </div>
         </div>
       </div>
-    </div>
- 
+    </NuxtLayout>
+  </div>
 </template>

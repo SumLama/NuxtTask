@@ -23,7 +23,7 @@ const toggleMenu = () => {
 
 <template>
   <div>
-    <div class="flex justify-between items-center p-4">
+    <div class=" relative z-10 flex justify-between items-center p-4">
       <div>
         <img src="/assets/images/new_logo.png" alt="logo" />
       </div>
@@ -31,20 +31,20 @@ const toggleMenu = () => {
         <button
           @click="toggleMenu"
           type="button"
-          class="inline-flex items-center justify-center p-4 z-10 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset"
+          class="inline-flex items-center justify-center p-4 z-10 "
         >
-          <UIcon :name="iconName" class="h-10 w-10" />
+          <UIcon :name="iconName" class="h-8 w-8 bg-white" />
         </button>
       </div>
     </div>
 
     <div
       v-if="toggle"
-      class="flex flex-col font-bold text-sm items-start px-20"
+      class="flex flex-col font-bold text-base xl:text-sm items-start px-20 py-5"
     >
-      <ul class="space-y-2">
+      <ul class="space-y-2 z-10 ">
         <li v-for="item in navItems" :key="item.route">
-          <NuxtLink :to="item.route" class="text-white hover:text-gray-900">
+          <NuxtLink :to="item.route" class="text-white">
             {{ item.label }}
           </NuxtLink>
         </li>

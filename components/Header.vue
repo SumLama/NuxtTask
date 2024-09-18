@@ -24,13 +24,14 @@ const items = [
 
 <template>
   <div
-    class="relative  bg-[url('/assets/images/header-bg.jpg')] w-screen bg-cover bg-[center_75%] ">
-  <div class="absolute w-full h-full bg-gradient-to-b from-neutral-950 to-transparent z-10 "></div>
+    class="relative  bg-[url('/assets/images/header-bg.jpg')] bg-cover bg-[center_75%] ">
+  <div class="absolute w-full h-full bg-gradient-to-b from-black via-black/75 to-transparent z-0 "></div> 
+   
   
-    <div class="lg:mx-20 mx-auto  ">
+    <div class="xl:mx-20 mx-auto">
       <div>
             <ul
-              class="flex justify-center lg:justify-end items-center  lg:space-x-5 font-bold text-sm text-white py-3"
+              class="flex justify-center md:justify-end items-center space-x-3 lg:space-x-5 font-bold text-sm text-white py-3 cursor-pointer "
             >
               <li>
                 <NuxtLink to="/register" class="relative flex items-center">
@@ -63,24 +64,22 @@ const items = [
               </li>
             </ul>
           </div>
-        <div class=" lg:hidden ">
+        <div class=" xl:hidden  ">
           <HamburgerMenu/>
         </div>
-      <div class="hidden lg:flex py-4 ">
-        <div class="flex-col md:w-1/3 z-10">
+      <div class="hidden xl:flex py-6 ">
+        <div class="flex-col lg:w-1/3 z-10">
           <div>
-            <img
-              src="/assets/images/new_logo.png"
-              alt="Logo"
-              class="h-16 my-5"
+            <img src="/assets/images/new_logo.png" alt="Logo"
+             
             />
           </div>
         </div>
         <div class="flex-1 z-10">
           <ul
-            class="flex justify-between items-center space-x-2 font-bold text-sm text-white"
+            class="flex justify-between items-center space-x-2 font-bold text-sm text-white my-5"
           >
-            <li v-for="(item, index) in navItems" :key="index">
+            <li v-for="(item, index) in navItems" :key="index" class="active:text-[#0058A0]">
               <NuxtLink :to="item.route">
                 <span>{{ item.label }}</span>
               </NuxtLink>
@@ -88,7 +87,7 @@ const items = [
             <li>
               <UButton
                 variant="solid"
-                class="button bg-sky-600 hover:bg-sky-600 px-8 rounded-none"
+                class="button bg-[#0058A0]hover:bg-[#0058A0] px-8 rounded-none"
               >
                 <UIcon
                   name="material-symbols:auto-videocam-outline-sharp"
@@ -100,8 +99,8 @@ const items = [
           </ul>
         </div>
       </div>
-      <div class="z-10 text-white">
-        <h1 class="text-xl md:text-3xl lg:text-4xl font-bold py-10 mx-16">Media Center</h1></div>
+      <div class="">
+        <h1 class="text-xl md:text-3xl lg:text-4xl font-bold py-10 mx-16 text-white z-10">Media Center</h1></div>
     </div>
   </div>
 

@@ -1,36 +1,37 @@
 <script setup>
-const apiUrl = "https://swa-2024-dev.up.railway.app/api/media-center/news";
-const { data: news, status } = await useFetch(apiUrl);
+const api = 'https://swa-2024-dev.up.railway.app/api/media-center/news';
+const { data: news, status } = await useFetch(()=>api);
 </script>
 <template>
   <div>
     <div v-if="status === 'pending'"><p>Loading data........</p></div>
-    <div v-if="status === 'error'"><p>Fetching error</p></div>
-    <div v-else-if="status === 'success'">
-      <div class="mx-auto w-4/6">
+    <div v-else-if="status === 'error'"><p>Fetching error</p></div>
+    <div v-else-if="status === 'success'" >
+      <div class="lg:w-4/6 mx-auto px-8 md:px-16  lg:px-0">
         <h1 class="text-3xl font-bold my-3">Featured News</h1>
         <div class="flex">
           <UCarousel
             fix
             :items="news.results"
             :ui="{
-              item: 'basis-full lg:basis-1/2',
-              container: 'rounded-none',
+              item: 'basis-full md:basis-1/2',
+              container: 'rounded-none gap-6',
               arrows: {
-                wrapper: 'flex items-center justify-end w-full my-2 px-4',
+                wrapper: 'flex items-center justify-end w-full my-2 ',
                 prev: 'mr-2',
                 next: 'ml-2',
               },
+              
             }"
             arrows
-          >
+            >
             <template #default="{ item }">
-              <div class="flex flex-col p-4 pl-0">
+              <div class="flex flex-col space-x-3">
                 <NuxtLink :to="`/news/${item.id}`">
                   <img
-                    :src="item.image"
+                    :src="joinUrls(item.image)"
                     :alt="item.title"
-                    class="w-full h-80 object-cover pr-4 mr-5"
+                    class="w-full object-cover snap-end "
                     draggable="false"
                   />
                 </NuxtLink>
@@ -51,7 +52,7 @@ const { data: news, status } = await useFetch(apiUrl);
               <button
                 :disabled="disabled"
                 @click="onClick"
-                class="h-5 w-5 bg-gray-200 mx-1"
+                class="h-5 w-5 bg-gray-200 mx-2"
               >
                 <UIcon name="heroicons:chevron-left" />
               </button>
@@ -61,17 +62,16 @@ const { data: news, status } = await useFetch(apiUrl);
               <button
                 :disabled="disabled"
                 @click="onClick"
-                class="h-5 w-5 bg-gray-200 mx-1"
+                class="h-5 w-5 bg-gray-200"
               >
                 <UIcon name="heroicons:chevron-right" class="h-5 w-5" />
               </button>
             </template>
           </UCarousel>
         </div>
-      </div>
-      <div class="mx-auto w-4/6 my-5">
+      <div>
         <h1 class="text-3xl font-bold my-5">Recent News</h1>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ul
             v-for="item in news.results"
             :key="item.id"
@@ -81,7 +81,7 @@ const { data: news, status } = await useFetch(apiUrl);
               <img
                 :src="item.image"
                 :alt="item.title"
-                class="h-64 object-cover"
+                class=" object-cover"
               />
             </li>
             <li class="flex space-x-4 text-xs">
@@ -94,7 +94,8 @@ const { data: news, status } = await useFetch(apiUrl);
             <li class="font-medium text-xl">{{ item.title }}</li>
           </ul>
         </div>
-      </div>
+      </div> 
+    </div>
     </div>
   </div>
 </template>

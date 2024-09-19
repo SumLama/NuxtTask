@@ -28,7 +28,7 @@ const { data: item, status } = await useFetch(apiUrl);
             <span>{{ item.readTime }} min read</span>
           </div>
           <div class="my-5">
-            <img :src="item.image" :alt="item.title" class="h-[55%] w-[55%]" />
+            <img :src="joinUrls(item.image)" :alt="item.title" class="h-[55%] w-[55%]" />
           </div>
           <div>
             <p class="leading-loose">{{ item.content }}</p>

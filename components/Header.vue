@@ -87,7 +87,7 @@ const items = [
             <li>
               <UButton
                 variant="solid"
-                class="button bg-[#0058A0]hover:bg-[#0058A0] px-8 rounded-none"
+                class="button bg-[#0058A0] hover:bg-[#0058A0] px-8 rounded-none"
               >
                 <UIcon
                   name="material-symbols:auto-videocam-outline-sharp"

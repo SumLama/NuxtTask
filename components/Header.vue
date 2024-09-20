@@ -5,9 +5,9 @@ const navItems = [
   { route: '/speakers', label: 'Speakers' },
   { route: '/sponsors', label: 'Sponsors' },
   { route: '/exhibitors', label: 'Exhibitors' },
-  { route: '/mediacenter', label: 'Media Center' },
-  { route: '/digitallibrary', label: 'Digital Library' },
-  { route: '/contactus', label: 'Contact us' },
+  { route: '/news', label: 'Media Center' },
+  { route: '/digital-library', label: 'Digital Library' },
+  { route: '/contact-us', label: 'Contact us' },
 ];
 const items = [
     [{
@@ -34,7 +34,7 @@ const items = [
               class="flex justify-center md:justify-end items-center space-x-3 lg:space-x-5 font-bold text-sm text-white py-3 cursor-pointer "
             >
               <li>
-                <NuxtLink to="/register" class="relative flex items-center">
+                <NuxtLink to="/register" class="relative flex items-center" exact-active-class="bg-">
                   <label class="mr-2">Register now</label>
                   <UIcon name="heroicons:arrow-long-right" class="w-5 h-5" />
                 </NuxtLink>
@@ -70,7 +70,7 @@ const items = [
       <div class="hidden xl:flex py-6 ">
         <div class="flex-col lg:w-1/3 z-10">
           <div>
-            <img src="/assets/images/new_logo.png" alt="Logo"
+            <img src="/assets/images/logo.png" alt="Logo"
              
             />
           </div>
@@ -79,8 +79,8 @@ const items = [
           <ul
             class="flex justify-between items-center space-x-2 font-bold text-sm text-white my-5"
           >
-            <li v-for="(item, index) in navItems" :key="index" class="active:text-[#0058A0]">
-              <NuxtLink :to="item.route">
+            <li v-for="(item, index) in navItems" :key="index" >
+              <NuxtLink :to="item.route" exact-active-class="text-[#0058A0]">
                 <span>{{ item.label }}</span>
               </NuxtLink>
             </li>
@@ -99,7 +99,7 @@ const items = [
           </ul>
         </div>
       </div>
-      <div class="">
+      <div class="relative z-10">
         <h1 class="text-xl md:text-3xl lg:text-4xl font-bold py-10 mx-16 text-white z-10">Media Center</h1></div>
     </div>
   </div>

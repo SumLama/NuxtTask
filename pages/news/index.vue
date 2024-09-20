@@ -1,6 +1,5 @@
 <script setup>
-const api = 'https://swa-2024-dev.up.railway.app/api/media-center/news';
-const { data: news, status } = await useFetch(()=>api);
+const {data:news,status} = await getNews().newsList();
 </script>
 <template>
   <div>
@@ -14,25 +13,24 @@ const { data: news, status } = await useFetch(()=>api);
             fix
             :items="news.results"
             :ui="{
-              item: 'basis-full md:basis-1/2',
-              container: 'rounded-none gap-6 h-full w-full',
+          item: 'basis-full md:basis-1/2',
+              container: 'rounded-none gap-4 h-full  ',
               arrows: {
-                wrapper: 'flex items-center justify-end  my-2 ',
+                wrapper: 'flex items-center justify-end my-2 ',
                 prev: 'mr-2',
-                next: 'ml-2',
-              },
-              
+                next: 'ml-2 ',
+              }
             }"
             arrows
             >
             <template #default="{ item }">
-              <div class="flex flex-col space-x-3">
+              <div class="flex flex-col w-full px-2">
                 <NuxtLink :to="`/news/${item.id}`">
         
                   <img
                     :src="joinUrls(item.image)"
                     :alt="item.title"
-                    class="min-h-[325px] object-cover snap-end"
+                    class="w-full h-[260px]  md:h-[220px] xl:h-[325px] object-cover snap-start "
                     draggable="false"
                   />
            
@@ -50,30 +48,41 @@ const { data: news, status } = await useFetch(()=>api);
               </div>
             </template>
 
-            <template #prev="{ onClick, disabled }">
+            <template #prev="{ onClick, disabled,size }">
               <button
                 :disabled="disabled"
                 @click="onClick"
+                size="xl"
                 class="h-5 w-5 bg-gray-200 mx-2"
+
               >
-                <UIcon name="heroicons:chevron-left" />
+                <UIcon name="heroicons:chevron-left" class="h-5 w-5 size:lg bg-violet-800" />
               </button>
             </template>
 
-            <template #next="{ onClick, disabled }">
+            <template #next="{ onClick, disabled, page, pages }">
+        
               <button
-                :disabled="disabled"
+                :disabled="disabled",
+              
                 @click="onClick"
                 class="h-5 w-5 bg-gray-200"
               >
-                <UIcon name="heroicons:chevron-right" class="h-5 w-5" />
+                <UIcon 
+                  name="heroicons:chevron-right" 
+                  class="h-5 w-5" 
+                  :class="{'bg-green-500':  !disabled,
+                    'bg-indigo-800': disabled || page >= pages
+                  }" 
+                />
+               
               </button>
             </template>
           </UCarousel>
-      
+     
       <div>
         <h1 class="text-3xl font-bold my-5">Recent News</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  py-8">
           <ul
             v-for="item in news.results"
             :key="item.id"
@@ -81,9 +90,9 @@ const { data: news, status } = await useFetch(()=>api);
           >
             <li>
               <img
-                :src="item.image"
+                :src="joinUrls(item.image)"
                 :alt="item.title"
-                class=" object-cover"
+                class="w-full md:h-56 lg:h-48 object-cover"
               />
             </li>
             <li class="flex space-x-4 text-xs">

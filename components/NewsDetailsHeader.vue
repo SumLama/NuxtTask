@@ -5,9 +5,9 @@ const navItems = [
   { route: '/speakers', label: 'Speakers' },
   { route: '/sponsors', label: 'Sponsors' },
   { route: '/exhibitors', label: 'Exhibitors' },
-  { route: '/mediacenter', label: 'Media Center' },
-  { route: '/digitallibrary', label: 'Digital Library' },
-  { route: '/contactus', label: 'Contact us' },
+  { route: '/media-center', label: 'Media Center' },
+  { route: '/digital-library', label: 'Digital Library' },
+  { route: '/contact-us', label: 'Contact us' },
 ];
 const items = [
     [{
@@ -67,7 +67,7 @@ const items = [
         <div class=" lg:w-1/3 z-10 ">
        
             <img
-              src="/assets/images/new_logo.png"
+              src="/assets/images/logo.png"
               alt="Logo"
             
             />
@@ -77,8 +77,8 @@ const items = [
           <ul
             class="flex justify-between items-center space-x-2 font-bold text-sm text-white my-5"
           >
-            <li v-for="(item, index) in navItems" :key="index" class="active:text-[#0058A0]">
-              <NuxtLink :to="item.route">
+            <li v-for="(item, index) in navItems" :key="index" >
+              <NuxtLink :to="item.route" exact-active-class="text-[#0058A0]">
                 <span>{{ item.label }}</span>
               </NuxtLink>
             </li>

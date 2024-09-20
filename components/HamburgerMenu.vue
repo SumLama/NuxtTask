@@ -7,9 +7,9 @@ const navItems = [
   { route: "/speakers", label: "Speakers" },
   { route: "/sponsors", label: "Sponsors" },
   { route: "/exhibitors", label: "Exhibitors" },
-  { route: "/mediacenter", label: "Media Center" },
-  { route: "/digitallibrary", label: "Digital Library" },
-  { route: "/contactus", label: "Contact us" },
+  { route: "/news", label: "Media Center" },
+  { route: "/digital-library", label: "Digital Library" },
+  { route: "/contact-us", label: "Contact us" },
 ];
 
 const toggle = ref(false);
@@ -25,7 +25,7 @@ const toggleMenu = () => {
   <div>
     <div class=" relative z-10 flex justify-between items-center p-4">
       <div>
-        <img src="/assets/images/new_logo.png" alt="logo" />
+        <img src="/assets/images/logo.png" alt="logo" />
       </div>
       <div>
         <button
@@ -44,7 +44,7 @@ const toggleMenu = () => {
     >
       <ul class="space-y-2 z-10 ">
         <li v-for="item in navItems" :key="item.route">
-          <NuxtLink :to="item.route" class="text-white">
+          <NuxtLink :to="item.route" class="text-white" exact-active-class="text-[#0058A0]">
             {{ item.label }}
           </NuxtLink>
         </li>

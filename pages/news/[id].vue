@@ -3,8 +3,7 @@ definePageMeta({
   layout: false,
 });
 const route = useRoute();
-const apiUrl = `https://swa-2024-dev.up.railway.app/api/media-center/news/${route.params.id}`;
-const { data: item, status } = await useFetch(apiUrl);
+const { data: item, status } = await getNews().newsDetails(route.params.id)
 </script>
 
 <template>

@@ -29,7 +29,7 @@ const links = {
       <div class="flex-grow">
         <div class="flex flex-col md:flex-row  md:justify-between md:mx-5 xl:justify-around  md:items-start justify-center items-center pt-20 space-y-5">
           <div>
-            <img src="/assets/images/new_logo.png" alt="Logo">
+            <img src="/assets/images/logo.png" alt="Logo">
           </div>
           <div>
             <ul>

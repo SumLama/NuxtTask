@@ -13,12 +13,8 @@ interface NewsDetail {
   image: string;
 }
 
-interface DetailResponse {
-  pagination: any,
-  details: NewsDetail; 
-}
 const route = useRoute();
-const { data: item, status } = await useFetch<DetailResponse>(
+const { data: item, status } = await useFetch<NewsDetail>(
   `https://swa-2024-dev.up.railway.app/api/media-center/news/${route.params.id}`
 );
 
@@ -36,17 +32,17 @@ const { data: item, status } = await useFetch<DetailResponse>(
       <div v-else-if="status === 'success' && item">
         <div class="w-4/6 mx-auto py-16 xl:py-32 space-y-5">
           <div>
-            <p class="text-medium text-3xl">{{ item.details.title }}</p> <!-- Access 'details' -->
+            <p class="text-medium text-3xl">{{ item.title }}</p> <!-- Access 'details' -->
           </div>
           <div class="mt-1 mb-14">
-            <span>{{ format(new Date(item.details.createdAt), 'dd MMM yyyy, hh.mm aa') }}</span>
+            <span>{{ format(new Date(item.createdAt), 'dd MMM yyyy, hh.mm aa') }}</span>
             <br />
-            <span>{{ item.details.readTime }} min read</span>
+            <span>{{ item.readTime }} min read</span>
           </div>
           <div class="my-5 w-full lg:w-[450px]">
-            <img :src="getImageUrl(item.details.image)" :alt="item.details.title" class="w-full" />
+            <img :src="getImageUrl(item.image)" :alt="item.title" class="w-full" />
           </div>
-          <div v-html="item.details.content"></div>
+          <div v-html="item.content"></div>
         </div>
       </div>
     </NuxtLayout>

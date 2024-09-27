@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const links = {
   main: [
     { label: 'Agenda', to: '/agenda' },
@@ -66,7 +66,7 @@ const links = {
           </div>
         </div>
       </div>
-      <footer class=" text-center md:text-start mx-6 xl:mx-24" >
+      <footer class="xl:mx-24 text-center md:text-start mx-6 " >
         <p>Copyright © Innovation Driven Water Sustainability 2024, All rights reserved.</p>
       </footer>
 

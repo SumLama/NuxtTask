@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const navItems = [
   { route: '/', label: 'Home' },
   { route: '/agenda', label: 'Agenda' },
@@ -21,10 +21,10 @@ const items = [
     }]
 ];
 </script>
-
 <template>
   <div
-    class="relative  bg-[url('/assets/images/header-bg.jpg')] bg-cover bg-[center_75%] ">
+    class="relative  bg-[url('/assets/images/header-bg.jpg')] bg-cover bg-[center_75%] "> 
+    
   <div class="absolute w-full h-full bg-gradient-to-b from-black via-black/75 to-transparent z-0 "></div> 
    
   
@@ -34,7 +34,7 @@ const items = [
               class="flex justify-center md:justify-end items-center space-x-3 lg:space-x-5 font-bold text-sm text-white py-3 cursor-pointer "
             >
               <li>
-                <NuxtLink to="/register" class="relative flex items-center" exact-active-class="bg-">
+                <NuxtLink to="/register" class="relative flex items-center">
                   <label class="mr-2">Register now</label>
                   <UIcon name="heroicons:arrow-long-right" class="w-5 h-5" />
                 </NuxtLink>
@@ -50,15 +50,13 @@ const items = [
               </li>
               <li>
                 <UDropdown
-                  v-model:open="open"
                   :items="items"
                   :popper="{ placement: 'bottom-start' }"
                 >
                   <UButton
-                    color=""
                     label="Options"
                     trailing-icon="i-heroicons-chevron-down-20-solid"
-                    class="font-bold ring-0 text-sm bg-transparent hover:ring-0"
+                    class="font-bold ring-0 text-sm bg-transparent hover:ring-0 hover:bg-transparent"
                   />
                 </UDropdown>
               </li>

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const navItems = [
   { route: '/', label: 'Home' },
   { route: '/agenda', label: 'Agenda' },
@@ -46,15 +46,13 @@ const items = [
               </li>
               <li>
                 <UDropdown
-                  v-model:open="open"
                   :items="items"
                   :popper="{ placement: 'bottom-start' }"
                 >
                   <UButton
-                    color=""
                     label="Options"
                     trailing-icon="i-heroicons-chevron-down-20-solid"
-                    class="font-bold ring-0 text-sm bg-transparent hover:ring-0"
+                    class="font-bold ring-0 text-sm bg-transparent hover:ring-0 hover:bg-transparent"
                   />
                 </UDropdown>
               </li>
